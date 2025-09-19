@@ -5,15 +5,17 @@ import Footer from './components/footer'
 
 function App() {
   const [name, setName] = useState("")
-  //email form state
   const [email,setEmail] = useState("")
 
 
-  //added a email validation on submit and changed the alert message 
-  function handleClick() {
+    function handleClick() {
     if (name.trim() !== '' && email.trim() !== '') {
       alert(`Welcome ${name}, your email "${email}" has been submitted successfully!`)
-    } else {
+    } else if (name.trim() === ''){
+      alert("Please enter your name")
+    } else if (email.trim() === ''){
+      alert("Please enter your email")
+    }else {
       alert("Please enter all the fields")
     }
   }
@@ -48,8 +50,6 @@ function App() {
             />
           </div>
           
-          {/* email input field */}
-
           <div className="mb-6">
             <label
               htmlFor="formEmail"
