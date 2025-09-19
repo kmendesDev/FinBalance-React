@@ -5,12 +5,16 @@ import Footer from './components/footer'
 
 function App() {
   const [name, setName] = useState("")
+  //email form state
+  const [email,setEmail] = useState("")
 
+
+  //added a email validation on submit and changed the alert message 
   function handleClick() {
-    if (name.trim() !== '') {
-      alert(`Welcome ${name}`)
+    if (name.trim() !== '' && email.trim() !== '') {
+      alert(`Welcome ${name}, your email "${email}" has been submitted successfully!`)
     } else {
-      alert("Please enter your name")
+      alert("Please enter all the fields")
     }
   }
 
@@ -43,6 +47,25 @@ function App() {
               className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none"
             />
           </div>
+          
+          {/* email input field */}
+
+          <div className="mb-6">
+            <label
+              htmlFor="formEmail"
+              className="block text-sm font-medium text-gray-700 mb-2"
+            >
+              Email
+            </label>
+            <input
+              id="formEmail"
+              placeholder="email@example.com"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:outline-none"
+            />
+          </div>
 
           <button
             type="submit"
@@ -60,3 +83,4 @@ function App() {
 }
 
 export default App
+
